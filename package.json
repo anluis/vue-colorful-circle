@@ -1,11 +1,17 @@
 {
   "name": "vue-colorful-circle",
   "version": "0.1.0",
-  "private": true,
+  "main": "dist/vue-colorful-circle.umd.js",
+  "module": "dist/vue-colorful-circle.umd.js",
+  "unpkg": "dist/vue-colorful-circle.umd.js",
+  "browser": {
+    "./sfc": "src/vueColorfulCircle.vue"
+  },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "yarn build:umd & yarn build:es & yarn build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-colorful-circle.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-colorful-circle.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-colorful-circle.min.js"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -27,6 +33,10 @@
     "eslint-plugin-vue": "^6.1.2",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
+    "rollup": "^1.32.0",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-vue": "^5.1.6",
     "typescript": "~3.7.5",
     "vue-template-compiler": "^2.6.11"
   },

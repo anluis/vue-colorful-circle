@@ -1,11 +1,11 @@
 // Import vue component
-import component from "./vueColorfulCircle.vue";
+import component from "./ColorfulCircle.vue";
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
   if (install.installed) return;
   install.installed = true;
-  Vue.component("vueColorfulCircle", component);
+  Vue.component("ColorfulCircle", component);
 }
 
 // Create module definition for Vue.use()

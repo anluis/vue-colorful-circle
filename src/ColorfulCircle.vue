@@ -28,6 +28,7 @@
       :stroke-dashoffset="strokeDashoffset || 1100"
     />
     <text
+      v-if="showPercentage"
       :style="{ font: textStyle }"
       :fill="textColor"
       :x="radius"

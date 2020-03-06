@@ -48,61 +48,80 @@ export default {
   props: {
     progress: {
       type: Number,
-      default: 0
+      default: 0,
+      required: false
     },
     showPercentage: {
       type: Boolean,
-      default: false
+      default: false,
+      required: false
     },
     showPercentageSymbol: {
       type: Boolean,
-      default: true
+      default: true,
+      required: false
     },
     progressColor: {
       type: String,
-      default: '"rgb(76, 154, 255)'
+      default: "rgba(64, 144, 255, 1)",
+      required: false
     },
     bgColor: {
       type: String,
-      default: "#ecedf0"
+      default: "#ecedf0",
+      required: false
     },
     startColor: {
-      type: String
+      type: String,
+      required: false
     },
     middleColor: {
-      type: String
+      type: String,
+      required: false
     },
     endColor: {
-      type: String
+      type: String,
+      required: false
     },
     textColor: {
       type: String,
-      default: "#6b778c"
+      default: "#6b778c",
+      required: false
     },
     size: {
       type: String,
-      default: "100"
+      default: "100",
+      required: false
     },
     lineWidth: {
       type: String,
-      default: "25"
+      default: "25",
+      required: false
     },
     percentSpacing: {
       type: Number,
-      default: 10
+      default: 0,
+      required: false
     },
     textStyle: {
       type: String,
-      default: "bold 12px Helvetica, Arial, sans-serif"
+      default: "bold 12px Helvetica, Arial, sans-serif",
+      required: false
     },
     roundedStroke: {
-      type: Boolean
+      type: Boolean,
+      default: true,
+      required: false
     },
     responsive: {
-      type: Boolean
+      type: Boolean,
+      default: true,
+      required: false
     },
     id: {
-      type: String
+      type: String,
+      default: "url(#defaultGradient)",
+      required: false
     }
   },
   computed: {

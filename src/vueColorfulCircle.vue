@@ -41,58 +41,100 @@
   </svg>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+<script>
+export default {
+  name: "ColorfulCircle",
+  props: {
+    progress: {
+      type: Number,
+      default: 0
+    },
+    showPercentage: {
+      type: Boolean,
+      default: false
+    },
+    showPercentageSymbol: {
+      type: Boolean,
+      default: true
+    },
+    progressColor: {
+      type: String,
+      default: '"rgb(76, 154, 255)'
+    },
+    bgColor: {
+      type: String,
+      default: "#ecedf0"
+    },
+    startColor: {
+      type: String
+    },
+    middleColor: {
+      type: String
+    },
+    endColor: {
+      type: String
+    },
+    textColor: {
+      type: String,
+      default: "#6b778c"
+    },
+    size: {
+      type: String,
+      default: "100"
+    },
+    lineWidth: {
+      type: String,
+      default: "25"
+    },
+    percentSpacing: {
+      type: Number,
+      default: 10
+    },
+    textStyle: {
+      type: String,
+      default: "bold 12px Helvetica, Arial, sans-serif"
+    },
+    roundedStroke: {
+      type: Boolean
+    },
+    responsive: {
+      type: Boolean
+    },
+    id: {
+      type: String
+    }
+  },
+  computed: {
+    strokeDashoffset() {
+      const radius = 175;
+      const diameter = Math.round(Math.PI * radius * 2);
+      const getOffset = (val = 0) => Math.round(((100 - val) / 100) * diameter);
+      return getOffset(this.progress);
+    },
 
-@Component
-export default class ColorfulCircle extends Vue {
-  @Prop({ default: 0 }) readonly progress!: number;
-  @Prop({ default: false }) readonly showPercentage!: boolean;
-  @Prop({ default: true }) readonly showPercentageSymbol!: boolean;
-  @Prop({ default: "rgb(76, 154, 255)" }) readonly progressColor!: string;
-  @Prop({ default: "#ecedf0" }) readonly bgColor!: string;
-  @Prop() readonly startColor!: string | undefined;
-  @Prop() readonly middleColor!: string | undefined;
-  @Prop() readonly endColor!: string | undefined;
-  @Prop({ default: "#6b778c" }) readonly textColor!: string;
-  @Prop({ default: "100" }) readonly size!: string;
-  @Prop({ default: "25" }) readonly lineWidth!: string;
-  @Prop({ default: 10 }) readonly percentSpacing!: number;
-  @Prop({ default: "bold 12px Helvetica, Arial, sans-serif" })
-  readonly textStyle!: string | undefined;
-  @Prop() readonly roundedStroke!: boolean | undefined;
-  @Prop() readonly responsive!: boolean | undefined;
-  @Prop() readonly id!: string | undefined;
+    strokeLinecap() {
+      return this.roundedStroke ? "round" : "butt";
+    },
 
-  get strokeDashoffset() {
-    const radius = 175;
-    const diameter = Math.round(Math.PI * radius * 2);
-    const getOffset = (val = 0) => Math.round(((100 - val) / 100) * diameter);
-    return getOffset(this.progress);
+    svgSize() {
+      return this.responsive ? "100%" : this.size;
+    },
+
+    gradientId() {
+      return this.id || "defaultGradient";
+    },
+
+    strokeColor() {
+      return this.startColor && this.endColor
+        ? this.id
+          ? `url('#${this.gradientId}')`
+          : `url(#defaultGradient)`
+        : this.progressColor;
+    },
+
+    radius() {
+      return 175;
+    }
   }
-
-  get strokeLinecap() {
-    return this.roundedStroke ? "round" : "butt";
-  }
-
-  get svgSize() {
-    return this.responsive ? "100%" : this.size;
-  }
-
-  get gradientId() {
-    return this.id || "defaultGradient";
-  }
-
-  get strokeColor() {
-    return this.startColor && this.endColor
-      ? this.id
-        ? `url('#${this.gradientId}')`
-        : `url(#defaultGradient)`
-      : this.progressColor;
-  }
-
-  get radius() {
-    return 175;
-  }
-}
+};
 </script>

@@ -1,6 +1,6 @@
 {
   "name": "vue-colorful-circle",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/Anluis/vue-colorful-circle"
@@ -22,18 +22,13 @@
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-colorful-circle.min.js"
   },
   "dependencies": {
-    "core-js": "^3.6.4",
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.18.0",
-    "@typescript-eslint/parser": "^2.18.0",
     "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-eslint": "~4.2.0",
-    "@vue/cli-plugin-typescript": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/eslint-config-typescript": "^5.0.1",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.1.2",
@@ -42,9 +37,7 @@
     "rollup": "^1.32.0",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-vue": "^5.1.6",
-    "typescript": "~3.7.5",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -55,9 +48,7 @@
     "extends": [
       "plugin:vue/essential",
       "eslint:recommended",
-      "@vue/typescript/recommended",
-      "@vue/prettier",
-      "@vue/prettier/@typescript-eslint"
+      "@vue/prettier"
     ],
     "parserOptions": {
       "ecmaVersion": 2020

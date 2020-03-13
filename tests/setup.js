@@ -1,1 +1,1 @@
-// require('jsdom')()
+// require('jsdom-global')()

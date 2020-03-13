@@ -1,5 +1,5 @@
 module.exports = {
-  "check-coverage": false,
+  "check-coverage": true,
   "per-file": true,
   "skip-full": true,
   all: true,

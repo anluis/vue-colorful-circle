@@ -5,6 +5,13 @@
     "type": "git",
     "url": "https://github.com/Anluis/vue-colorful-circle"
   },
+  "keywords": [
+    "circle",
+    "colorful circle",
+    "vue",
+    "Gradients",
+    "linear gradients"
+  ],
   "author": "Anluis",
   "license": "MIT",
   "main": "dist/vue-colorful-circle.umd.js",
@@ -19,26 +26,41 @@
     "build": "yarn build:umd & yarn build:es & yarn build:unpkg",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-colorful-circle.umd.js",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-colorful-circle.esm.js",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-colorful-circle.min.js"
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-colorful-circle.min.js",
+    "test:unit": "vue-cli-service test:unit src/**/*.spec.js",
+    "test-ci": "mocha-webpack -r jsdom-global/register --webpack-config node_modules/@vue/cli-service/webpack.config.js src/**/*.spec.js",
+    "cover": "nyc vue-cli-service test:unit tests/setup.js"
   },
   "dependencies": {
+    "core-js": "^3.6.4",
     "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
     "@vue/cli-plugin-eslint": "~4.2.0",
+    "@vue/cli-plugin-unit-mocha": "^4.2.3",
     "@vue/cli-service": "~4.2.0",
     "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "^1.0.0-beta.32",
+    "babel-plugin-istanbul": "^6.0.0",
+    "chai": "^4.2.0",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.1.2",
+    "istanbul-instrumenter-loader": "^3.0.1",
+    "jsdom": "^16.2.1",
+    "jsdom-global": "^3.0.2",
     "lint-staged": "^9.5.0",
+    "mocha": "^7.1.0",
+    "mocha-webpack": "^2.0.0-beta.0",
+    "nyc": "^15.0.0",
     "prettier": "^1.19.1",
     "rollup": "^1.32.0",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-vue": "^5.1.6",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.42.0"
   },
   "eslintConfig": {
     "root": true,
@@ -53,7 +75,16 @@
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {}
+    "rules": {},
+    "overrides": [
+      {
+        "files": [
+          "src/*.js"
+        ],
+        "excludedFiles": "*.spec.js",
+        "rules": {}
+      }
+    ]
   },
   "browserslist": [
     "> 1%",

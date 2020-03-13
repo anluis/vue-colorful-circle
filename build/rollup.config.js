@@ -21,5 +21,5 @@ export default {
     }),
     buble() // Transpile to ES5
   ],
-  external: ["vue"]
+  external: ["vue", "core-js"]
 };

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ColorfulCircle from "./ColorfulCircle.vue";
+import ColorfulCircle from "./components/ColorfulCircle.vue";
 export default {
   components: {
     ColorfulCircle

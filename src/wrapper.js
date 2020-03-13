@@ -1,5 +1,5 @@
 // Import vue component
-import component from "./ColorfulCircle.vue";
+import component from "./components/ColorfulCircle.vue";
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
